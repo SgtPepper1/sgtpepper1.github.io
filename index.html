@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>
+      iCat - Virtual Pet Cat
+    </title>
+  </head>
+	<center>
+	<h1 id="message">iCat - Virtual Pet Cat</h1>
+  <body onload="greetUser();">
+    <div style="margin-top:100px">
+      <img id="catImg" src="cat1.png" alt="iCat" onclick=
+      "changeCat();" />
+		<p id="owner" onclick="changeName();">Owner:</p>
+		<p id="happiness">Happiness: 1</p>
+    </div>
+	  
+	<script type="text/javascript">
+    var userName;
+	var happiness = 1;
+	var timer = setInterval(function(){ minusHappiness() }, 2 * 60 * 1000);
+    function greetUser() {
+    alert("Hello, I am your virtual cat");
+    userName = prompt("Please enter your name");
+	document.getElementById("owner").innerHTML += " <strong>" + userName + "</strong>";
+    }
+    function changeCat() {
+	if (happiness != 10) {
+	document.getElementById("catImg").src = 'cat.png';
+	setTimeout("document.getElementById('catImg').src = 'cat1.png';", 1 * 60 * 1000);
+	document.getElementById("happiness").innerHTML = " <strong>" + happiness + "</strong>";
+	alert("I like the attention " + userName + ", thank you.");
+	happiness = happiness + 1;
+	document.getElementById("happiness").innerHTML = "Happiness: <strong>" + happiness + "</strong>";
+	}
+	else { 
+	alert("I'm already at my max happiness level");
+	}
+	}
+	function changeName() {
+	userName = prompt("Please enter your different name");
+		document.getElementById("owner").innerHTML = "Owner: <strong>" + userName + "</strong>";
+	}
+	function minusHappiness() {
+		happiness = happiness - 1;
+		document.getElementById("happiness").innerHTML = "Happiness: <strong>" + happiness + "</strong>";
+		if (happiness <= 0) {
+			document.getElementById("catImg").src = 'grave.png';
+			document.getElementById("message").innerHTML = "<strong>Your cat is DEAD! Refresh the page.</strong>";
+			clearInterval(timer);
+		}
+	}
+    </script>
+	  </center>	
+  </body>
+</html>
