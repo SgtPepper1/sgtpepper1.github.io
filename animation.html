@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Animation Test</title>
+</head>
+<body onload="init();">
+<center>
+<h1 fontFamily="SansSerif">Peanut Butter JS time</h1>
+<div id="sprite">
+<img id="image" src="banana/1.gif" alt="animation"/>
+</div>
+<script type = "text/javascript">
+var imgList = new Array (
+"banana/1.gif",
+"banana/2.gif",
+"banana/3.gif",
+"banana/4.gif",
+"banana/5.gif",
+"banana/6.gif",
+"banana/7.gif",
+"banana/8.gif"
+);
+var frame = 0;
+var spriteImg;
+function init() {
+setInterval("animate()", 100);
+spriteImage = document.getElementById("image");
+}
+function animate() {
+frame += 1;
+if (frame >= imgList.length) {
+frame = 0;
+}
+spriteImage.src = imgList[frame];
+}
+</script>
+</center>
+</body>
+</html>
