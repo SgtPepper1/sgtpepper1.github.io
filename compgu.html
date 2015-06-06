@@ -1,0 +1,70 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      ComputerGuess
+    </title>
+    <meta name="Title" content="ComputerGuess" />
+    <meta name="Description" content=
+    "Let the computer do the hard work of guessing for once. (C) 2015 NoOneSpecial/DarkCart" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <center>
+           <img src="logo.png" alt="Logo">
+      <p id="about">
+        A twist on the popular beginner example "guess the number
+        the computer has chosen",<br />
+        this time the computer guesses the number the PLAYER has
+        chosen.
+      </p>
+      <form>
+        <input type="button" style="font-size: 40px" value="Play" onclick="play();" />
+      </form><script type="text/javascript">
+//<![CDATA[
+            var targetNumber;
+            var numOfTries = 0;
+            
+
+            function play() {
+                targetNumber = parseInt(prompt("Enter the number for the computer to guess (1-10)"));
+                if (targetNumber > 10) {
+                    alert("You put a number greater than 10, you cheater :P");
+                    return;
+                }
+                if (targetNumber == 10) {
+                    alert("You put 10? That was way to easy.");
+                    return;
+                }
+                if (targetNumber == 0) {
+                    alert("You put 0? That was so easy it was almost mortifying.");
+                    return;
+                }
+                guess(targetNumber);
+            }
+
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function guess(num) {
+                var n = getRandomInt(1, 10);
+                var a = prompt("Is " + n + " your number? (Y or N, or press S to stop)");
+                if (a == "y" || a == "Y") {
+                    alert("It took the computer " + numOfTries + " tries to guess your number");
+                
+                } 
+                if (a == "s" || a == "S") {
+                	return;
+                } 
+                if (a == "n" || a == "N") {
+                    n = getRandomInt(1, 10);
+                    numOfTries++;
+                    guess(num);
+                }
+            }
+      //]]>
+      </script>
+    </center>
+  </body>
+</html>
