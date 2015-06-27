@@ -1,10 +1,8 @@
 @CHARSET "UTF-8";
 
 body {
-	text-align: center;
+	text-align: left;
 	background-color: #e5e5e5;	
-}
-
-p {
 	font-size: 20px;
+	font-family: Arial;
 }
